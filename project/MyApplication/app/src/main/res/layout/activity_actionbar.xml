@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <TextView
+        android:id="@+id/red"
+        android:background="@color/colorAccent"
+        android:text="AppearBadge"
+        android:textSize="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/base_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight ="1"
+        android:overScrollMode="never">
+    </android.support.v4.view.ViewPager>
+
+
+    <com.ashokvarma.bottomnavigation.MyBottomBar
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bnbActiveColor="@color/green"
+        android:layout_gravity="bottom" />
+
+<!--    app:bnbBackgroundColor="@color/transparent"
+    app:bnbActiveColor="@color/active"
+    app:bnbInactiveColor="@color/inactive"-->
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:drawable="@drawable/vertor_horizontal_off">
+    <target
+        android:animation="@anim/objectanim"
+        android:name="direct_icon"/>
+<!--    <target
+        android:animation="@anim/scaleanim"
+        android:name="group_account"/>-->
+
+</animated-vector>

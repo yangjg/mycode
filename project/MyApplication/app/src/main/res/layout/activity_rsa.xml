@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/com_tag"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="公钥:"
+            android:textSize="12sp"/>
+        <TextView android:id="@+id/com_key"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="12sp"/>
+    </LinearLayout>>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/private_tag"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="私钥:"
+            android:textSize="12sp"/>
+        <TextView android:id="@+id/private_key"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="12sp"/>
+    </LinearLayout>>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/msg_tag"
+            android:text="源数据"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+        <EditText
+            android:id="@+id/source_msg"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"/>
+
+        <TextView android:id="@+id/encode_tag"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="加密后:"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+
+        <TextView android:id="@+id/encode_msg"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+        <Button
+            android:id="@+id/encode"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:text="加密"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>>
+
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/encode_msg_tag"
+            android:text="加密数据"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+        <EditText
+            android:id="@+id/encode_data"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"/>
+
+        <TextView android:id="@+id/decode_tag"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="解密后:"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+
+        <TextView android:id="@+id/decode_data"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
+        <Button
+            android:id="@+id/decode"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_width="0dip"
+            android:text="解密"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>>
+
+    <Button
+        android:id="@+id/reset"
+        android:text="Reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

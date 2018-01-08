@@ -1,0 +1,15 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <header
+        android:id="@+id/h1"
+        android:title="settings"
+        android:summary="just 1"
+        android:fragment="com.example.yangjingan.myapplication.Settings.SettingsFragment"
+        />
+
+    <header
+        android:id="@+id/h2"
+        android:title="test 2"
+        android:summary="just 2"
+        />
+</preference-headers>
