@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+<LinearLayout
+    android:id="@+id/header"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:layout_gravity="top" android:layout_marginBottom="30dip">
+   <View android:layout_height="1dp" android:layout_width="match_parent" android:background="#ff00ff00"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/urlEdit"
+            android:layout_width="wrap_content"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/begin"
+            android:text="GO"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:layout_weight="1.0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </WebView>
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="30dip">
+        <ImageView
+            android:id="@+id/forward"
+            android:src="@drawable/music"
+            style="@style/MenuStyle" />
+
+        <ImageView
+            android:id="@+id/backward"
+            android:src="@drawable/back"
+            style="@style/MenuStyle" />
+
+        <ImageView
+            android:id="@+id/home"
+            android:src="@drawable/scale"
+            style="@style/MenuStyle" />
+
+        <ImageView
+            android:id="@+id/menu"
+            android:src="@drawable/shader"
+            style="@style/MenuStyle" />
+
+    </LinearLayout>
+</FrameLayout>

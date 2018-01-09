@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="test">#ff1a1c1f</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#FF0F00FF</color>
+
+
+
+    <color name="news_back_color_default">#FFF5F5F5</color>
+    <color name="news_back_color_nightmd">#FF262626</color>
+    <color name="news_tab_header_text_color_default_n">#FF363636</color>
+    <color name="news_tab_header_text_color_default_s">#FF2F9CF7</color>
+    <color name="news_tab_header_text_color_nightmd_n">#FF6E6E6E</color>
+    <color name="news_tab_header_text_color_nightmd_s">#FF266EA9</color>
+    <color name="news_tab_header_divider_color_default">#FFB1B1B1</color>
+    <color name="news_tab_header_divider_color_nightmd">#FF424242</color>
+    <color name="news_list_view_divider_color_default">#FFDEDEDE</color>
+    <color name="news_list_view_divider_color_nightmd">#FF323232</color>
+    <color name="news_life_assit_title_color_default">#FFFF8A00</color>
+    <color name="news_stocks_keep_text_color_default">#2F9CF7</color>
+    <color name="news_stocks_incr_text_color_default">#FF2929</color>
+    <color name="news_stocks_decr_text_color_default">#00A354</color>
+    <color name="news_stocks_keep_text_color_nightmd">#266EA9</color>
+    <color name="news_stocks_incr_text_color_nightmd">#922222</color>
+    <color name="news_stocks_decr_text_color_nightmd">#16653F</color>
+    <color name="news_pkcard_text_color_default">#FF1C90F3</color>
+    <color name="news_pkcard_text_color_nightmd">#FF26567F</color>
+    <color name="news_pkcard_percent_text_color_default">#363636</color>
+    <color name="news_pkcard_percent_text_color_nightmd">#6E6E6E</color>
+    <color name="news_pkcard_positive_text_color_default">#59B3FE</color>
+    <color name="news_pkcard_negative_text_color_default">#FA785E</color>
+    <color name="news_pkcard_positive_text_color_nightmd">#246AA3</color>
+    <color name="news_pkcard_negative_text_color_nightmd">#B24838</color>
+    <color name="news_subcat_header_color_default">#F5F5F5</color>
+    <color name="news_subcat_header_color_nightmd">#262626</color>
+
+    <!-- News -->
+    <dimen name="standard_spacing">5.0dip</dimen>
+    <dimen name="font_size_default">14.0sp</dimen>
+
+    <color name="solid_white">#ffffffff</color>
+    <color name="secondary_text">#ff999999</color>
+    <color name="secondary_text_nightmd">#ff6e6e6e</color>
+    <!-- News -->
+    <color name="iflow_comment_cnt_text_color">#FF363636</color>
+    <color name="iflow_comment_cnt_text_color_night">#FF6e6e6e</color>
+    <color name="iflow_news_image_disable_backgroud_color_default">#FFE6E6E6</color>
+    <color name="iflow_news_image_disable_backgroud_color_nightmd">#FF2E2E2E</color>
+    <color name="iflow_news_loading_left_img_backgroud_color_default">@color/iflow_news_image_disable_backgroud_color_default</color>
+    <color name="iflow_news_loading_right_top_img_backgroud_color_default">@color/iflow_news_image_disable_backgroud_color_default</color>
+    <color name="iflow_news_loading_right_bottom_img_backgroud_color_default">@color/iflow_news_image_disable_backgroud_color_default</color>
+    <color name="iflow_news_loading_left_img_backgroud_color_nightmd">#FF353535</color>
+    <color name="iflow_news_loading_right_top_img_backgroud_color_nightmd">@color/iflow_news_image_disable_backgroud_color_nightmd</color>
+    <color name="iflow_news_loading_right_bottom_img_backgroud_color_nightmd">@color/iflow_news_image_disable_backgroud_color_nightmd</color>
+    <color name="iflow_news_reload_text_color_default">#FF565656</color>
+    <color name="iflow_news_reload_text_color_nightmd">#FF696969</color>
+    <color name="iflow_news_reload_root_background_color_default">@color/iflow_news_image_disable_backgroud_color_default</color>
+    <color name="iflow_news_reload_root_background_color_nightmd">@color/iflow_news_image_disable_backgroud_color_nightmd</color>
+    <color name="iflow_list_bottom_view_background_color_default">#FFE0E0E0</color>
+    <color name="iflow_list_bottom_view_background_color_nightmd">#FF696969</color>
+    <color name="iflow_list_bottom_view_progressbar_color_default">@color/news_tab_header_text_color_default_s</color>
+    <color name="iflow_list_bottom_view_progressbar_color_nightmd">@color/news_tab_header_text_color_nightmd_n</color>
+    <color name="iflow_list_view__count_color_default">@color/news_tab_header_text_color_default_s</color>
+    <color name="iflow_list_view__count_color_nightmd">@color/news_tab_header_text_color_nightmd_n</color>
+</resources>

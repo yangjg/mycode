@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="student">
+        <item>邓名侨</item>
+        <item>刘天喜</item>
+        <item>其黄石</item>
+        <item>蔡宏远</item>
+    </string-array>
+
+</resources>

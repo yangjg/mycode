@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/skewbtn"
+        android:text="@string/skew_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+    android:id="@+id/skewPtn"
+    android:text="@string/skew_ptn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/skewRtn"
+        android:text="reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+   <com.example.yjq.androidlearn.myview.SkewView
+       android:id="@+id/skew"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" />
+</LinearLayout>

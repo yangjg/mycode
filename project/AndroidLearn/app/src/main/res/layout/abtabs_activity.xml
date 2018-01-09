@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <FrameLayout
+       android:id="@+id/frag_container"
+       android:layout_weight="1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"></FrameLayout>
+    <LinearLayout
+        android:id="@+id/btnroot"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dip">
+        <Button
+            android:id="@+id/addtabs"
+            android:text="addTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/removeLast"
+            android:text="removeLast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/toggle"
+            android:text="toggleMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/removeall"
+            android:text="removeall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

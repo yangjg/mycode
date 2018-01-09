@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/back"
+        android:duration="600"></item>
+    <item
+        android:drawable="@drawable/music"
+        android:duration="600"></item>
+    <item
+        android:drawable="@drawable/scale"
+        android:duration="600"></item>
+    <item
+        android:drawable="@drawable/shader"
+        android:duration="600"></item>
+</animation-list>

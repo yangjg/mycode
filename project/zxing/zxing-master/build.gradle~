@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        maven { url 'http://artifactory.rnd.meizu.com/artifactory/plugins-release' }
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.meizu.tools.build:gradle:2.5' // configer插件jar包
+        classpath 'com.android.tools.build:gradle:1.3.1'
+    }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.pro'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.meizu.flyme.sdk:flyme-appcompat:2.0.161126"
+    compile "com.meizu.flyme.sdk:meizu-common:2.0.161126"
+    compile "com.meizu.flyme.sdk:res-meizu-common:2.0.161126"
+    compile "com.meizu.flyme.sdk:flyme-palette:1.0.+"
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.meizu.statsapp:MzUsageStats:2.5'
+    compile 'com.google.code.gson:gson:2.3.+'
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <com.example.yjq.androidlearn.myview.SwitchCheckBox
+      android:id="@+id/switchBox"
+      android:clickable="true"
+      android:layout_width="match_parent"
+      android:layout_height="50dip" />
+    <FrameLayout
+        android:id="@+id/fy"
+        android:layout_width="60dip"
+        android:layout_height="60dip">
+        <ImageView
+            android:id="@+id/image"
+            android:src="@drawable/music"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+    <Button android:id="@+id/showPopup"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="ShowPop"/>
+    <com.example.yjq.androidlearn.myview.MyEditViewInput
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+</LinearLayout>

@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">AndroidLearn</string>
+    <string name="skew_btn">SkewBegin</string>
+    <string name="skew_ptn">SkewPosition</string>
+
+
+    <string name="menu_refresh">立即刷新!</string>
+    <string name="refresh_pull_down">下拉刷新…</string>
+    <string name="refresh_release">释放刷新…</string>
+    <string name="loading">正在加载…</string>
+    <string name="refresh_pull_up">上拉刷新…</string>
+    <string name="news_default_invalid_category_major_name">头条</string>
+    <string name="news_life_assit_title">生活助手</string>
+    <string name="news_scores_middle_state_prepare">未开赛</string>
+    <string name="news_scores_middle_state_current">比赛中</string>
+    <string name="news_scores_middle_state_stopped">已结束</string>
+    <string name="news_scores_time_format_curr">今日</string>
+    <string name="news_scores_time_format_week">本</string>
+    <string name="news_scores_time_format_date" formatted="false">%d月%d日</string>
+    <string name="news_stock_state_dealed">更新中</string>
+    <string name="news_stock_state_closed">已收盘</string>
+    <string name="news_pkcard_title">热点投票</string>
+    <string name="news_pkcard_state_format">%d人参与投票</string>
+    <!-- News -->
+
+    <string name="style_locate_item_text">切换城市</string>
+    <string name="news_time_post">M月d日</string>
+    <string name="news_time_just_now">刚刚更新</string>
+    <string name="news_time_minutes">%d分钟前</string>
+    <string name="news_time_hours">%d小时前</string>
+    <string name="news_time_today">今天 HH:mm</string>
+    <string name="news_time_yesterday">昨天 HH:mm</string>
+    <string name="news_time_more_days">M月d日</string>
+    <string name="news_reload_hint_network_error_on_news">网络不好，下拉刷新</string>
+    <string name="news_reload_hint_network_error_on_home">网络不好，点击刷新</string>
+    <string name="news_reload_hint_server_error_on_news">服务器异常，下拉重新刷新</string>
+    <string name="news_reload_hint_server_error_on_home">服务器异常，点击重新刷新</string>
+    <string name="news_scores_more_text">点击更多比赛详情</string>
+
+    <!-- News update result -->
+    <string name="news_update_servers_error">服务器异常，请稍后再试</string>
+    <string name="news_update_network_error">网络不给力啊，请稍后再试</string>
+    <string name="news_update_nothing_change">没有数据更新</string>
+    <string name="news_update_data_update_format">为您更新了%d条数据</string>
+    <!-- News update result -->
+</resources>

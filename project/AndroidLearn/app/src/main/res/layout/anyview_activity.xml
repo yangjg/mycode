@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffff0000"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ <Button
+     android:id="@+id/showhide"
+     android:text="ShowHide"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content" />
+ <LinearLayout
+     android:orientation="vertical"
+     android:id="@+id/frag_container"
+     android:layout_weight="1.0"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"></LinearLayout>
+
+</LinearLayout>-->
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:listSelector="@drawable/listview_selector"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:divider="@drawable/divider"
+    android:dividerHeight="2dip"
+    android:paddingTop="50dip" />

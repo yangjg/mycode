@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.yjq.androidlearn">
+
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"></uses-permission>
+    <uses-feature android:name="android.hardware.camera"></uses-feature>
+    <uses-feature android:name="android.hardware.camera2"></uses-feature>
+    <uses-feature android:name="android.hardware.autofocus"></uses-feature>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".myview.SkewActivity"></activity>
+
+        <activity android:name=".myview.ShaderActivity" ></activity>
+        <activity android:name=".myview.AnimationActivity"></activity>
+        <activity android:name=".myview.AudioActivity"></activity>
+        <activity android:name=".myview.VideoActivity"></activity>
+        <activity android:name=".myview.CameraActivity"></activity>
+        <activity android:name=".myview.SettinActivity"></activity>
+        <activity android:name=".myview.RetrieveDataActivity"></activity>
+        <activity android:name=".myview.ContactActivity"></activity>
+        <activity android:name=".myview.ServiceActivity"></activity>
+        <activity android:name=".myview.WebviewActivity"></activity>
+        <activity android:name=".myview.MyViewTestActivity"></activity>
+        <activity android:name=".myview.ViewPageActivity"></activity>
+        <activity android:name=".myview.MyJNIActivity"></activity>
+        <activity android:name=".myview.LeakActivity"></activity>
+        <activity android:name=".animation.AnimationActivity"></activity>
+        <activity android:name=".animation.BouncingBallActivity"></activity>
+        <activity android:name=".animation.CloningActivity"></activity>
+        <activity android:name=".animation.CustomEvaluatorActivity"></activity>
+        <activity android:name=".animation.DefaultLayoutAnimationActivity"></activity>
+        <activity android:name=".animation.AniationEventActivity"></activity>
+        <activity android:name=".animation.HideShowAnimationActivity"></activity>
+        <activity android:name=".animation.LayoutAnimationActivity"></activity>
+        <activity android:name=".animation.LoadingActivity"></activity>
+        <activity android:name=".animation.MultiplePropertiesActivity"></activity>
+        <activity android:name=".animation.ReversingActivity"></activity>
+        <activity android:name=".animation.SeekingActivity"></activity>
+        <activity android:name=".animation.FlipActivity"></activity>
+
+        <activity android:name=".app.AppListActivity"></activity>
+        <activity android:name=".app.actionbar.ActionBarListActivity"></activity>
+        <activity android:name=".app.actionbar.ABMechanicsActivity"></activity>
+        <activity android:name=".app.actionbar.ABTabsActivity"></activity>
+        <activity android:name=".app.actionbar.ABUsageActivity"></activity>
+        <activity android:name=".app.actionbar.ABProviderActivity"></activity>
+        <activity android:name=".app.actionbar.ABDisplayActivity"                 android:logo="@drawable/music">
+
+        </activity>
+        <activity android:name=".app.ShortCutTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.TestShort" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".graphics.GraphicsListActivity"></activity>
+        <activity android:name=".graphics.AnimationMeshActivity"></activity>
+        <activity android:name=".graphics.PatternsActivity"></activity>
+        <activity android:name=".graphics.AnyViewTestActivity"  android:theme="@style/CustomActionBarTheme"  android:label="graphic">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity-alias
+            android:name="test"
+            android:label="graphic/alias"
+            android:icon="@drawable/music"
+
+            android:targetActivity=".graphics.AnyViewTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity-alias>
+        <activity android:name=".graphics.TouchPaintActivity"></activity>
+        <service
+            android:name=".servicce.MyService"
+            android:enabled="true"
+          />
+
+        <service
+            android:name=".servicce.TimerService"
+            android:enabled="true"
+            />
+        <service
+            android:name=".servicce.MyRemoveService"
+            android:enabled="true"
+            android:process=":remoteservice"
+            />
+
+        <service
+            android:name=".servicce.MyAidlService"
+            android:enabled="true"
+            android:process=":aidlservice"
+            />
+    </application>
+
+</manifest>

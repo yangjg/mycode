@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.yjq.androidlearn.myview.compositeListView.ListBottomViewImpl xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="64.0dip"
+        android:background="@color/iflow_list_bottom_view_background_color_default"
+        android:clickable="false"
+        android:focusable="false" >
+
+        <com.example.yjq.androidlearn.myview.compositeListView.NewsLoadingView
+            android:id="@+id/refresh_loading"
+            android:layout_width="@dimen/iflow_list_bottom_view_progressbar_width"
+            android:layout_height="@dimen/iflow_list_bottom_view_progressbar_height"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/iflow_list_bottom_view_progressbar_margin_top"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/refresh_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/standard_spacing"
+            android:shadowColor="@color/solid_white"
+            android:shadowDy="1.0"
+            android:shadowRadius="0.5"
+            android:text="@string/refresh_pull_up"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/font_size_default"
+            android:textStyle="normal" />
+
+
+        <View
+            android:id="@+id/refresh_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="10.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/standard_spacing"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</com.example.yjq.androidlearn.myview.compositeListView.ListBottomViewImpl>

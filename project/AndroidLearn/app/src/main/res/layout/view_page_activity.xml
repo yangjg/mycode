@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.yjq.androidlearn.myview.MyHorizontalScrollView
+        android:id="@+id/hscroll"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="50dip">
+    </com.example.yjq.androidlearn.myview.MyHorizontalScrollView>
+    <Button
+        android:id="@+id/setting"
+        android:text="setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_gravity="bottom|left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <!--   <android.support.v4.view.PagerTitleStrip
+            android:id="@+id/pagertitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v4.view.PagerTitleStrip>-->
+
+      <!--  <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pagertab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v4.view.PagerTabStrip>-->
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
