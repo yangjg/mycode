@@ -7,6 +7,18 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+__const char* priv_key ="[.7=a$K#z)d3Eu^P";
+
+__const char* iv_key ="_g7=a$K#)d*E#fg7";
+
+__const char*  CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding";
+
+__const char* KEY_ALGORITHM = "AES";
+
+jobject  m_cipher;
+jmethodID doFinal;
+
 /*
  * Class:     com_othershe_jnitest_JniUtil
  * Method:    test
@@ -14,6 +26,16 @@ extern "C" {
  */
 JNIEXPORT jstring JNICALL Java_com_othershe_jnitest_JniUtil_test
   (JNIEnv *, jobject);
+
+/*
+ * Class:     com_othershe_jnitest_JniUtil
+ * Method:    AesEncrypt
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_othershe_jnitest_JniUtil_AesEncrypt
+  (JNIEnv *, jobject, jstring);
+
+JNIEXPORT jstring stoJstring(JNIEnv*, jbyteArray);
 
 #ifdef __cplusplus
 }

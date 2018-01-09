@@ -25,7 +25,7 @@ public class WebviewActivity extends Activity {
     boolean isOK = false;
 
     private static final String T2="file:///android_asset/html/t2.html";
-    private static final String DEFAULT_URL = "https://act-app.mzres.com/resources/activity/2017-party/index.html?qunarhotelbeta=1"; //"http://appff.meizu.com/front/example/dialog/index.html"; //"http://www.baidu.com/";  //"file:///android_asset/html/flashtest.html";//"http://www.baidu.com/";// "https://y.mzres.com/resources/activity/test/index.html";//"http://www.baidu.com/";
+    private static final String DEFAULT_URL = "http://appff.meizu.com/front/example/qunar-test/index.html?qunarhotelbeta=1";  //"http://appff.meizu.com/front/example/dialog/index.html"; //"http://www.baidu.com/";  //"file:///android_asset/html/flashtest.html";//"http://www.baidu.com/";// "https://y.mzres.com/resources/activity/test/index.html";//"http://www.baidu.com/";
     private static final String TAG = "MainActivity";
 
     @Override
