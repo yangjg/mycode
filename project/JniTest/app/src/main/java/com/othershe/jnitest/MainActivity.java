@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        JniUtil.init(this);
         jniUtil = new JniUtil();
         setContentView(R.layout.activity_main);
 
@@ -30,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void encrypt(){
+        String[] s = jniUtil.signatureDigest();
         String content ="fweewhwerhwhwehwehwehwehw";
-        String res = jniUtil.AesEncrypt(content);
+     /*   String res = jniUtil.StrEncrypt(content);
+        String source = jniUtil.StrEncrypt(res);*/
+        String res = jniUtil.getEncodeString(content);
         data.setText(res);
 
     }
