@@ -7,7 +7,6 @@ JNIEXPORT jstring JNICALL Java_com_example_yangjingan_ndkresearch_JniUtil_test
     return (*env)->NewStringUTF(env,"jni调用成功");
 }
 
-
 JNIEXPORT jstring JNICALL Java_com_example_yangjingan_ndkresearch_JniUtil_AesEncrypt
   (JNIEnv *, jobject, jstring){
   return (*env)->NewStringUTF(env,"jni调用成功");
