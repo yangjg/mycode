@@ -8,18 +8,17 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
 
-    private JniUtil jniUtil;
 
     private TextView data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         JniUtil.init(this);
-        jniUtil = new JniUtil();
+       // jniUtil = new JniUtil();
         setContentView(R.layout.activity_main);
 
         textView = (TextView) findViewById(R.id.test);
-        textView.setText(jniUtil.test());
+       // textView.setText(jniUtil.test());
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void encrypt(){
-        String[] s = jniUtil.signatureDigest();
         String content ="fweewhwerhwhwehwehwehwehw";
      /*   String res = jniUtil.StrEncrypt(content);
         String source = jniUtil.StrEncrypt(res);*/
-        String res = jniUtil.getEncodeString(content);
+       // String res = jniUtil.getEncodeString(content);
+        String res = JniUtil.getInstance().getHexEncrpt(content);
         data.setText(res);
 
     }

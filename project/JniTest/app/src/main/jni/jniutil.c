@@ -2,28 +2,42 @@
 // Created by yangjingan on 18-1-8.
 //
 #include "com_othershe_jnitest_JniUtil.h"
-#include "string.h"
 #include "global.h"
-JNIEXPORT jstring  JNICALL Java_com_othershe_jnitest_JniUtil_test(JNIEnv *env, jobject obj) {
-    return (*env)->NewStringUTF(env, "jni调用成功");
+
+
+
+JNIEXPORT jbyteArray JNICALL Java_com_othershe_jnitest_JniUtil_encrypt
+        (JNIEnv *env, jobject obj, jbyteArray bytes){
+    return getEncrypt(env,bytes);
 }
 
+/*JNIEXPORT jstring  JNICALL Java_com_othershe_jnitest_JniUtil_test(JNIEnv *env, jobject obj) {
+    return (*env)->NewStringUTF(env, "jni调用成功");
+}*/
 
+
+/*
 JNIEXPORT jstring JNICALL Java_com_othershe_jnitest_JniUtil_StrEncrypt
         (JNIEnv *env, jobject obj, jstring content) {
-    /*  jclass  cls = (*env)->GetObjectClass(env, obj);
+    */
+/*  jclass  cls = (*env)->GetObjectClass(env, obj);
       jmethodID  aesEncrypt = (*env)->GetStaticMethodID(env,cls,"encrypt","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       jstring pri = (*env)->NewStringUTF(env,priv_key);
       jstring iv =(*env)->NewStringUTF(env,iv_key);
       jstring res = (jstring)((*env)->CallStaticObjectMethod(env,cls,aesEncrypt,content,pri,iv));
       (*env)->DeleteLocalRef(env,pri);
-      (*env)->DeleteLocalRef(env,iv);*/
+      (*env)->DeleteLocalRef(env,iv);*//*
+
+*/
 /*    jclass  cls = (*env)->GetObjectClass(env, obj);
     jmethodID  aesEncrypt = (*env)->GetStaticMethodID(env,cls,"print","(Ljava/lang/String;)Ljava/lang/String;");
     jstring data =(*env)->NewStringUTF(env,priv_key);
-    jstring res =(*env)->CallStaticObjectMethod(env,cls,aesEncrypt,data);*/
-    /*jstring  res =(*env)->NewStringUTF(env,"jni aesencrypt call success");
-    (*env)->DeleteLocalRef(env,data);*/
+    jstring res =(*env)->CallStaticObjectMethod(env,cls,aesEncrypt,data);*//*
+
+    */
+/*jstring  res =(*env)->NewStringUTF(env,"jni aesencrypt call success");
+    (*env)->DeleteLocalRef(env,data);*//*
+
 
     jstring  res = NULL;
     jstring data;
@@ -138,11 +152,14 @@ JNIEXPORT jstring JNICALL Java_com_othershe_jnitest_JniUtil_StrEncrypt
 
     return res;
 }
+*/
 
+/*
 JNIEXPORT jbyteArray JNICALL Java_com_othershe_jnitest_JniUtil_byteEncrypt
         (JNIEnv *env, jobject obj, jbyteArray bytes){
 
-  /*  static jobject  s_cipher;
+  */
+/*  static jobject  s_cipher;
     static jmethodID s_doFinal;
 
     jstring  res = NULL;
@@ -235,9 +252,11 @@ JNIEXPORT jbyteArray JNICALL Java_com_othershe_jnitest_JniUtil_byteEncrypt
 
 
     data =(*env)->NewStringUTF(env,"doFinal call ok");
-    (*env)->CallStaticVoidMethod(env,cls,aesEncrypt,data);*/
+    (*env)->CallStaticVoidMethod(env,cls,aesEncrypt,data);*//*
 
-   /* jstring  res = NULL;
+
+   */
+/* jstring  res = NULL;
     jstring data;
     jclass  cls = (*env)->GetObjectClass(env, obj);
     jmethodID  aesEncrypt = (*env)->GetStaticMethodID(env,cls,"print","(Ljava/lang/String;)V");
@@ -248,34 +267,56 @@ JNIEXPORT jbyteArray JNICALL Java_com_othershe_jnitest_JniUtil_byteEncrypt
         jclass localRefCls =
                 (*env)->FindClass(env, "java/lang/String");
         if (localRefCls == NULL) {
-            return NULL; *//* exception thrown *//*
+            return NULL; *//*
+*/
+/* exception thrown *//*
+*/
+/*
         }
-        *//* Create a global reference *//*
+        *//*
+*/
+/* Create a global reference *//*
+*/
+/*
         stringClass = (*env)->NewGlobalRef(env, localRefCls);
-        *//* The local reference is no longer useful *//*
+        *//*
+*/
+/* The local reference is no longer useful *//*
+*/
+/*
         (*env)->DeleteLocalRef(env, localRefCls);
-        *//* Is the global reference created successfully? *//*
+        *//*
+*/
+/* Is the global reference created successfully? *//*
+*/
+/*
         if (stringClass == NULL) {
-            return NULL; *//* out of memory exception thrown *//*
+            return NULL; *//*
+*/
+/* out of memory exception thrown *//*
+*/
+/*
         }
     }
     else{
         data =(*env)->NewStringUTF(env,"stringClass is not null");
         (*env)->CallStaticVoidMethod(env,cls,aesEncrypt,data);
-    }*/
+    }*//*
+
     return getEncrypt(env,bytes);
 
 }
 
 
+*/
 
 
 
-JNIEXPORT jstring stoJstring(JNIEnv* env, jbyteArray bytes)
+/*JNIEXPORT jstring stoJstring(JNIEnv* env, jbyteArray bytes)
 {
     jclass strClass = (*env)->FindClass(env,"java/lang/String");
     jmethodID ctorID = (*env)->GetMethodID(env,strClass, "<init>", "([BLjava/lang/String;)V");
     jstring encoding = (*env)->NewStringUTF(env,"utf-8");
     return (jstring)(*env)->NewObject(env, strClass, ctorID, bytes, encoding);
-}
+}*/
 

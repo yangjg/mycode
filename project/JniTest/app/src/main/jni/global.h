@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#ifndef DEBUG_SO
+#define DEBUG_SO
+#endif
+
 #include "jni.h"
 #include "string.h"
 #include <stdbool.h>
