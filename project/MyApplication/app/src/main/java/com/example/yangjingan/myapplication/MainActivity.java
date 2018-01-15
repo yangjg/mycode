@@ -37,8 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+
+    private static Context gContext;
+    public static Context getContext(){
+        return gContext;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        gContext = getApplicationContext();
         super.onCreate(savedInstanceState);
      //   getLoaderManager();
        // android.support.v4.app.LoaderManager.enableDebugLogging(true);

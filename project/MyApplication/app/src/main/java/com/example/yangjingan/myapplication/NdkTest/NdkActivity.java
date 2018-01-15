@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.example.yangjingan.myapplication.R;
 import com.example.yangjingan.myapplication.tools.Views;
-import com.example.yangjingan.ndkresearch.JniUtil;
+import com.meizu.jni.JniTool;
+import com.meizu.jni.JniUtil;
+
 
 /**
  * Created by yangjingan on 18-1-8.
@@ -26,8 +28,9 @@ public class NdkActivity  extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JniUtil util = new JniUtil();
-                textView.setText(util.test());
+                String content ="fwefwewefwefewf";
+                String res = JniUtil.getInstance().getEncrypt(content);
+                textView.setText(res);
             }
         });
     }

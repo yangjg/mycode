@@ -1,15 +1,18 @@
 //
 // Created by yangjingan on 18-1-8.
 //
-#include "com_othershe_jnitest_JniUtil.h"
+#include "com_meizu_jni_JniUtil.h"
 #include "global.h"
-
-
-
-JNIEXPORT jbyteArray JNICALL Java_com_othershe_jnitest_JniUtil_encrypt
-        (JNIEnv *env, jobject obj, jbyteArray bytes){
-    return getEncrypt(env,bytes);
+JNIEXPORT jbyteArray JNICALL Java_com_meizu_jni_JniUtil_encrypt
+        (JNIEnv *env, jobject obj, jbyteArray bytes,jint mode){
+    return getEncrypt(env,bytes,mode);
 }
+
+JNIEXPORT jstring JNICALL Java_com_meizu_jni_JniUtil_getAppSignKey
+        (JNIEnv *env, jobject obj, jint type){
+    return  getAppSignKey(env,type);
+}
+
 
 /*JNIEXPORT jstring  JNICALL Java_com_othershe_jnitest_JniUtil_test(JNIEnv *env, jobject obj) {
     return (*env)->NewStringUTF(env, "jni调用成功");

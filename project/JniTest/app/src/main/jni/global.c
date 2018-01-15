@@ -6,45 +6,19 @@
 #include "string.h"
 #include "jni.h"
 #include "global.h"
-
-
-/*extern jclass g_cls_cipher;
-extern jclass g_cls_secret_spec;
-extern jclass g_cls_iv_parameter;
-extern jmethodID g_method_cipher_get_instance;
-extern jmethodID g_method_cipher_init;
-extern jmethodID g_method_cipher_do_final;
-extern jmethodID g_method_secret_tor;
-extern jmethodID g_method_iv_tor;
-extern jstring  g_string_algorithm;
-extern jstring  g_string_key_algorithm;
-extern jobject  g_object_cipher;
-extern jobject  g_object_secret_spec;
-extern jobject  g_object_iv_parameter;
-extern jbyteArray g_private_bytes;
-extern jbyteArray g_iv_bytes;*/
 bool isSecurity(JNIEnv *env) {
     bool res = false ;
     if (initClass(env)) {
-#ifdef DEBUG_SO
-        jmethodID  aesEncrypt = (*env)->GetStaticMethodID(env,g_cls_jni_util,"print","(Ljava/lang/String;)V");
-        jstring data = (*env)->NewStringUTF(env, "begin call  checkedSign");
-        (*env)->CallStaticVoidMethod(env, g_cls_jni_util, aesEncrypt, data);
-#endif
+        debugLog(env,"begin call  checkedSign");
         res = checkedSign(env);
-
-#ifdef DEBUG_SO
-        __const char* msg;
-        if(g_check_sign){
-            msg ="check sign success";
+      /*  if(res){
+            debugLog(env,"check sign success");
         }
         else{
-            msg ="check sign failed, can't call any jni method";
-        }
-        data = (*env)->NewStringUTF(env, msg);
-        (*env)->CallStaticVoidMethod(env, g_cls_jni_util, aesEncrypt, data);
-        (*env)->DeleteLocalRef(env, data);
-#endif
+            debugLog(env,"check sign failed, can't call any jni method");
+        }*/
+        res == true ? debugLog(env,"check sign success"):debugLog(env,"check sign failed, can't call any jni method");
+
     }
     return res;
 }
@@ -54,18 +28,45 @@ bool checkedSign(JNIEnv *env) {
         return g_check_sign;
     }
 
-    __const char *apkMd5 = "6C43F4D93B1E66BFDF9D3C44C46E72D3";
+    //JniTest：这个是android的默认签名
+    //6C43F4D93B1E66BFDF9D3C44C46E72D3
+    //以下是商店各个签名后的md5，用于so校验
+    //debugdemo :6E657F8C6D195D3A3DEB5D21C9D77C53
+    //debugeng:8DDB342F2DA5408402D7568AF21E29F9
+    //debugprd:1C44D05F494A1C2DC6CBCBAC9C92ECFD
+    //debuguser:C4AA9B9DEB124FE4BAE4C2FFDC05FAC6
+    //releasedemo:6E657F8C6D195D3A3DEB5D21C9D77C53
+    //releaseeng：8DDB342F2DA5408402D7568AF21E29F9
+    //releaseprd:1C44D05F494A1C2DC6CBCBAC9C92ECFD
+    //releaseuser：C4AA9B9DEB124FE4BAE4C2FFDC05FAC
+    __const char* md5Array[]={
+            "6C43F4D93B1E66BFDF9D3C44C46E72D3",
+                              "6E657F8C6D195D3A3DEB5D21C9D77C53",
+                              "8DDB342F2DA5408402D7568AF21E29F9",
+                              "1C44D05F494A1C2DC6CBCBAC9C92ECFD",
+                              "C4AA9B9DEB124FE4BAE4C2FFDC05FAC6"
+                              };
+    int md5Len = 4 ;
+
     jmethodID signatureDigest = (*env)->GetStaticMethodID(env, g_cls_jni_util, "signatureDigest", "()[Ljava/lang/String;");
     jobjectArray ja = (*env)->CallStaticObjectMethod(env, g_cls_jni_util, signatureDigest);
     jsize len = (*env)->GetArrayLength(env, ja);
     jstring jstr;
     char **pstr = (char **) malloc(len * sizeof(char *));
     int i=0;
+
     for (i = 0; i < len; ++i) {
         jstr = (*env)->GetObjectArrayElement(env, ja, i);
         pstr[i] = (char *) (*env)->GetStringUTFChars(env, jstr, 0);
-        if (0 == strcmp(apkMd5, pstr[i])) {
-            g_check_sign = true;
+
+        int j =0;
+        for(j=0;j<md5Len;j++){
+            if (0 == strcmp(md5Array[j], pstr[i])) {
+                g_check_sign = true;
+                break;
+            }
+        }
+        if(g_check_sign){
             break;
         }
     }
@@ -83,7 +84,8 @@ bool initClass(JNIEnv *env) {
     if (NULL != g_object_cipher && NULL != g_method_cipher_do_final) {
         return true;
     }
-    __const char *JniUtil = "com/othershe/jnitest/JniUtil";
+    //com.meizu.jni.JniUtil
+    __const char *JniUtil = "com/meizu/jni/JniUtil";
     __const char *CIPHER = "javax/crypto/Cipher";
     __const char *SecretKey = "javax/crypto/spec/SecretKeySpec";
     __const char *IVParameterSpec = "javax/crypto/spec/IvParameterSpec";
@@ -107,12 +109,19 @@ bool initClass(JNIEnv *env) {
     (*env)->DeleteLocalRef(env, ivparameterCls);
     (*env)->DeleteLocalRef(env, cls);
 
+    //如果没有定义DEBUG字段则不初始化print方法。
+    jfieldID debug  = (*env)->GetStaticFieldID(env,g_cls_jni_util,"DEBUG","Z");
+    if((*env)->ExceptionCheck(env)){
+        (*env)->ExceptionClear(env);
+        debug =NULL;
+    }
+    if(debug != NULL){
+        g_jni_debug =(*env)->GetStaticBooleanField(env,g_cls_jni_util,debug);
+        g_method_jni_print = (*env)->GetStaticMethodID(env, g_cls_jni_util, "print", "(Ljava/lang/String;)V");
+    }
 
-#ifdef DEBUG_SO
-    jmethodID  aesEncrypt = (*env)->GetStaticMethodID(env,g_cls_jni_util,"print","(Ljava/lang/String;)V");
-    jstring data = (*env)->NewStringUTF(env, "find all class success");
-    (*env)->CallStaticVoidMethod(env, g_cls_jni_util, aesEncrypt, data);
-#endif
+    debugLog(env,"find all class success");
+
     //获取SecretKeySpec类的getInstance方法；
     jmethodID instance = (*env)->GetStaticMethodID(env, g_cls_cipher, "getInstance",
                                                    "(Ljava/lang/String;)Ljavax/crypto/Cipher;");
@@ -121,8 +130,8 @@ bool initClass(JNIEnv *env) {
     //把CIPHER_ALGORITHM,KEY_ALGORITHM 转换成string
     __const char *G_CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding";
     __const char *G_KEY_ALGORITHM = "AES";;
-    __const char *G_PRIVATE_KEY = "[.7=a$K#z)d3Eu^P";
-    __const char *G_IV_KEY = "_g7=a$K#)d*E#fg7";
+    __const char *G_PRIVATE_KEY = "[.7=a$K#z)d3Eu^A";
+    __const char *G_IV_KEY = "_g7=a$K#)d*E#fg8";
     jstring algorithm = (*env)->NewStringUTF(env, G_CIPHER_ALGORITHM);
     jstring key_algorithm = (*env)->NewStringUTF(env, G_KEY_ALGORITHM);
     g_string_algorithm = (*env)->NewGlobalRef(env, algorithm);
@@ -136,6 +145,8 @@ bool initClass(JNIEnv *env) {
                                                       g_string_algorithm);
     g_object_cipher = (*env)->NewGlobalRef(env, m_cipher);
     (*env)->DeleteLocalRef(env, m_cipher);
+
+
 
 
     //把iv_key，priv_key转换成jbyteArray 数组;
@@ -180,28 +191,98 @@ bool initClass(JNIEnv *env) {
                                            "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V");
     g_method_cipher_init = initId;
 
-    (*env)->CallVoidMethod(env, g_object_cipher, g_method_cipher_init, 1, g_object_secret_spec,
-                           g_object_iv_parameter);
-
     jmethodID doFinal = (*env)->GetMethodID(env, g_cls_cipher, "doFinal", "([B)[B");
     g_method_cipher_do_final = doFinal;
 
-
-#ifdef DEBUG_SO
-     data = (*env)->NewStringUTF(env, "init all object and  method success");
-    (*env)->CallStaticVoidMethod(env, g_cls_jni_util, aesEncrypt, data);
-    (*env)->DeleteLocalRef(env, data);
-#endif
+    debugLog(env,"init all object and  method success");
 
     return true;
 }
 
-jbyteArray getEncrypt(JNIEnv *env, jbyteArray bytes) {
+jbyteArray getEncrypt(JNIEnv *env, jbyteArray bytes,jint mode) {
     jbyteArray res = NULL;
     if (isSecurity(env)) {
-        jbyteArray resData = (jbyteArray) ((*env)->CallObjectMethod(env, g_object_cipher,
-                                                                    g_method_cipher_do_final, bytes));
-        res = resData;
+        if(g_mode != mode){
+            (*env)->CallVoidMethod(env, g_object_cipher, g_method_cipher_init, mode, g_object_secret_spec,
+                                   g_object_iv_parameter);
+            g_mode = mode ;
+        }
+        switch(mode){
+            case 1:
+                debugLog(env,"doFinal Encrypts mode");
+                break;
+            case 2:
+                debugLog(env,"doFinal decrypts mode");
+                break;
+            default:
+                debugLog(env,"doFinal other mode");
+                break;
+        }
+        res = (jbyteArray) ((*env)->CallObjectMethod(env, g_object_cipher,
+                                                     g_method_cipher_do_final, bytes));
     }
     return res;
+}
+
+
+jstring getAppSignKey(JNIEnv *env,jint type) {
+    jstring res = NULL;
+    if (isSecurity(env)) {
+        switch (type){
+            case 1:
+                if (NULL == g_app_sign_key) {
+                    jstring tp = (*env)->NewStringUTF(env, "8nLG89bQJ7t9jrhpjy6fXw4fLdZXbwWQ");
+                    g_app_sign_key = (*env)->NewGlobalRef(env,tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_app_sign_key ;
+                break;
+            case 2:
+                if (NULL == g_app_code_sign_key) {
+                    jstring tp = (*env)->NewStringUTF(env, "ADFdfFFFDkluMHTM");
+                    g_app_code_sign_key = (*env)->NewGlobalRef(env,tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_app_code_sign_key ;
+                break;
+            case 3:
+                if (NULL == g_upload_sign_key) {
+                    jstring  tp = (*env)->NewStringUTF(env, "x*Y^mdj@Fdu68*J");
+                    g_upload_sign_key = (*env)->NewGlobalRef(env,tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_upload_sign_key ;
+                break;
+            case 4:
+                if(NULL == g_game_sign_key){
+                    jstring  tp = (*env)->NewStringUTF(env, "mVqcNR9j7XbOFHTMGu55wQHKJUhiHJrl");
+                    g_game_sign_key = (*env)->NewGlobalRef(env,tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_game_sign_key ;
+                break;
+            case 5:
+                if(NULL == g_game_code_sign_key){
+                    jstring  tp = (*env)->NewStringUTF(env, "GOceSDIVXVJsdJLS");
+                    g_game_code_sign_key = (*env)->NewGlobalRef(env,tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_game_code_sign_key ;
+                break;
+            default:
+                res = (*env)->NewStringUTF(env, "unknown type");
+                break;
+        }
+    }
+    return res;
+
+}
+
+
+void debugLog(JNIEnv *env, __const char *msg) {
+    if (g_jni_debug) {
+        jstring data = (*env)->NewStringUTF(env, msg);
+        (*env)->CallStaticVoidMethod(env, g_cls_jni_util, g_method_jni_print, data);
+        (*env)->DeleteLocalRef(env, data);
+    }
 }
