@@ -42,6 +42,12 @@ static jstring  g_upload_sign_key;
 static jstring  g_game_sign_key;
 static jstring  g_game_code_sign_key;
 
+static __const int APP_CODE_SIGN_TYPE = 1 ;
+static __const int APP_KEY_SIGN_TYPE = 2 ;
+static __const int UPLOAD_SIGN_TYPE = 3 ;
+static __const int GAME_CODE_SIGN_TYPE = 4 ;
+static __const int GAME_KEY_SIGN_TYPE = 5 ;
+
 /*__const char* G_PRIVATE_KEY ="[.7=a$K#z)d3Eu^P";
 
 __const char* G_IV_KEY ="_g7=a$K#)d*E#fg7";

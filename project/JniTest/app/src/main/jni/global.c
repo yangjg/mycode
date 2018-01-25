@@ -1,7 +1,6 @@
 //
 // Created by yangjingan on 18-1-10.
 //
-
 #include "stdbool.h"
 #include "string.h"
 #include "jni.h"
@@ -40,7 +39,6 @@ bool checkedSign(JNIEnv *env) {
     //releaseprd:1C44D05F494A1C2DC6CBCBAC9C92ECFD
     //releaseuser：C4AA9B9DEB124FE4BAE4C2FFDC05FAC
     __const char* md5Array[]={
-            "6C43F4D93B1E66BFDF9D3C44C46E72D3",
                               "6E657F8C6D195D3A3DEB5D21C9D77C53",
                               "8DDB342F2DA5408402D7568AF21E29F9",
                               "1C44D05F494A1C2DC6CBCBAC9C92ECFD",
@@ -229,7 +227,7 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
     jstring res = NULL;
     if (isSecurity(env)) {
         switch (type){
-            case 1:
+            case APP_KEY_SIGN_TYPE:
                 if (NULL == g_app_sign_key) {
                     jstring tp = (*env)->NewStringUTF(env, "8nLG89bQJ7t9jrhpjy6fXw4fLdZXbwWQ");
                     g_app_sign_key = (*env)->NewGlobalRef(env,tp);
@@ -237,7 +235,7 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
                 }
                 res = g_app_sign_key ;
                 break;
-            case 2:
+            case APP_CODE_SIGN_TYPE:
                 if (NULL == g_app_code_sign_key) {
                     jstring tp = (*env)->NewStringUTF(env, "ADFdfFFFDkluMHTM");
                     g_app_code_sign_key = (*env)->NewGlobalRef(env,tp);
@@ -245,7 +243,7 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
                 }
                 res = g_app_code_sign_key ;
                 break;
-            case 3:
+            case UPLOAD_SIGN_TYPE:
                 if (NULL == g_upload_sign_key) {
                     jstring  tp = (*env)->NewStringUTF(env, "x*Y^mdj@Fdu68*J");
                     g_upload_sign_key = (*env)->NewGlobalRef(env,tp);
@@ -253,7 +251,7 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
                 }
                 res = g_upload_sign_key ;
                 break;
-            case 4:
+            case GAME_KEY_SIGN_TYPE:
                 if(NULL == g_game_sign_key){
                     jstring  tp = (*env)->NewStringUTF(env, "mVqcNR9j7XbOFHTMGu55wQHKJUhiHJrl");
                     g_game_sign_key = (*env)->NewGlobalRef(env,tp);
@@ -261,7 +259,7 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
                 }
                 res = g_game_sign_key ;
                 break;
-            case 5:
+            case GAME_CODE_SIGN_TYPE:
                 if(NULL == g_game_code_sign_key){
                     jstring  tp = (*env)->NewStringUTF(env, "GOceSDIVXVJsdJLS");
                     g_game_code_sign_key = (*env)->NewGlobalRef(env,tp);

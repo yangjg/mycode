@@ -13,8 +13,8 @@ android {
 
         ndk {
             moduleName "jniutil"
-            abiFilters "armeabi"
-            //abiFilters "all"
+           // abiFilters "armeabi"
+            abiFilters "all"
         }
     }
     buildTypes {
@@ -30,8 +30,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.alibaba:fastjson:1.1.60.android'
 }
-/*//这段gradle的配置是用来调试jni代码的配置，不生成so；
-apply plugin: 'com.android.model.application'
+//这段gradle的配置是用来调试jni代码的配置，不生成so；
+/*apply plugin: 'com.android.model.application'
 model{
     android {
         compileSdkVersion 24
@@ -43,7 +43,6 @@ model{
             targetSdkVersion.apiLevel = 24
 
         }
-
         ndk {
             moduleName "jniutil"
             ldLibs.addAll(["android", "log"])
@@ -55,7 +54,6 @@ model{
                 proguardFiles.add(file('proguard-rules.pro'))
             }
         }
-
         productFlavors {
             create("arm") {
                 ndk.abiFilters.add("armeabi")
