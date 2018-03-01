@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntDef;
-import android.support.annotation.Px;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
@@ -341,7 +340,7 @@ public class MyBottomBar extends FrameLayout {
     }
 
     @Override
-    public void setPadding(@Px int left, @Px int top, @Px int right, @Px int bottom) {
+    public void setPadding( int left,  int top,  int right,  int bottom) {
        mTabContainer.setPadding(left,top,right,bottom);
     }
 
