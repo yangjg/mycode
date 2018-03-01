@@ -20,6 +20,7 @@ import android.widget.Button;
 import com.example.yangjingan.myapplication.Annotation.AnnotationTest;
 import com.example.yangjingan.myapplication.Annotation.StateTest.TestState;
 import com.example.yangjingan.myapplication.CommonTest.ClassTest;
+import com.example.yangjingan.myapplication.CoordinatorTest.CoordinatorActivity;
 import com.example.yangjingan.myapplication.NdkTest.NdkActivity;
 import com.example.yangjingan.myapplication.RSATest.RSAUtils;
 import com.example.yangjingan.myapplication.RSATest.RsaActivity;
@@ -149,9 +150,13 @@ public class MainActivity extends AppCompatActivity {
 
     private  void dowork(){
 
-            Intent intent = new Intent();
-        intent.setClass(this,NdkActivity.class);
+        Intent intent = new Intent();
+        intent.setClass(this,CoordinatorActivity.class);
         startActivity(intent);
+
+  /*          Intent intent = new Intent();
+        intent.setClass(this,NdkActivity.class);
+        startActivity(intent);*/
       /*  try {
             for (int i=0;i<100;){
                 Thread.sleep(2000);
@@ -163,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(this,RsaActivity.class);
         startActivity(intent);*/
        // AnnotationTest.sInstance.doTest();
-     /*   Intent intent = new Intent();
+ /*       Intent intent = new Intent();
         intent.setClass(this,ActonBarActivity.class);
         startActivity(intent);*/
 

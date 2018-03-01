@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/action_settings"
+          android:title="Setting"
+          android:visible="true"
+          android:icon="@drawable/mz_titlebar_ic_tab_unfold_dark"
+          app:showAsAction="ifRoom"
+          android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_notifications"
+        android:title="Notify"
+        android:icon="@drawable/mz_tab_ic_share_dark"
+        android:visible="true"
+        app:showAsAction="always"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/action_search"
+        android:title="@android:string/search_go"
+        android:icon="@drawable/mz_titlebar_ic_search_dark"
+        app:showAsAction="always"
+        android:showAsAction="always"
+        android:visible="true"/>
+
+</menu>
