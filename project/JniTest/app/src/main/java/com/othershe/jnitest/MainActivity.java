@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.meizu.jni.Constants;
-import com.meizu.jni.Hello;
 import com.meizu.jni.JniUtil;
 
 
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         String gameKey = JniUtil.getInstance().getGameKeySignKey();
 
         Constants.test();
-        res =  Hello.getInstance().test();
         data.setText(res);
 
     }

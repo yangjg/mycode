@@ -27,7 +27,7 @@ bool checkedSign(JNIEnv *env) {
         return g_check_sign;
     }
 
-    //JniTest：这个是android的默认签名
+    //JniTest：这个是android的默认签名,调试的时候可添加上这个签名，不然demo会崩溃的。
     //6C43F4D93B1E66BFDF9D3C44C46E72D3
     //以下是商店各个签名后的md5，用于so校验
     //debugdemo :6E657F8C6D195D3A3DEB5D21C9D77C53
