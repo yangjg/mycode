@@ -41,15 +41,20 @@ static jstring  g_app_code_sign_key;
 static jstring  g_upload_sign_key;
 static jstring  g_game_sign_key;
 static jstring  g_game_code_sign_key;
+static jstring  g_aes_private_key;
+static jstring  g_aes_iv_key;
 
 static __const int APP_CODE_SIGN_TYPE = 1 ;
-static __const int APP_KEY_SIGN_TYPE = 2 ;
-static __const int UPLOAD_SIGN_TYPE = 3 ;
-static __const int GAME_CODE_SIGN_TYPE = 4 ;
-static __const int GAME_KEY_SIGN_TYPE = 5 ;
+static __const  int APP_KEY_SIGN_TYPE = 2 ;
+static __const  int UPLOAD_SIGN_TYPE = 3 ;
+static __const  int GAME_CODE_SIGN_TYPE = 4 ;
+static __const  int GAME_KEY_SIGN_TYPE = 5 ;
+static __const  int AES_PRIVATE_TYPE = 6;
+static __const  int AES_IV_TYPE=7;
+/*static __const char* G_PRIVATE_KEY ="[.7=a$K#z)d3Eu^A"; = "[.7=a$K#z)d3Eu^A"; = "_g7=a$K#)d*E#fg8";
+static __const char* G_IV_KEY ="[.7=a$K#z)d3Eu^A";*/
 
-/*__const char* G_PRIVATE_KEY ="[.7=a$K#z)d3Eu^P";
-
+/*__const char* G_PRIVATE_KEY ="_g7=a$K#)d*E#fg7";
 __const char* G_IV_KEY ="_g7=a$K#)d*E#fg7";
 
 __const char*  G_CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding";

@@ -24,6 +24,7 @@ import com.example.yangjingan.myapplication.CoordinatorTest.CoordinatorActivity;
 import com.example.yangjingan.myapplication.NdkTest.NdkActivity;
 import com.example.yangjingan.myapplication.RSATest.RSAUtils;
 import com.example.yangjingan.myapplication.RSATest.RsaActivity;
+import com.example.yangjingan.myapplication.RxJavaTest.RxJavaActivity;
 import com.example.yangjingan.myapplication.Webview.WebviewActivity;
 
 import junit.framework.Test;
@@ -151,8 +152,12 @@ public class MainActivity extends AppCompatActivity {
     private  void dowork(){
 
         Intent intent = new Intent();
-        intent.setClass(this,CoordinatorActivity.class);
+        intent.setClass(this,RxJavaActivity.class);
         startActivity(intent);
+
+       /* Intent intent = new Intent();
+        intent.setClass(this,CoordinatorActivity.class);
+        startActivity(intent);*/
 
   /*          Intent intent = new Intent();
         intent.setClass(this,NdkActivity.class);

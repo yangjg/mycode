@@ -23,9 +23,10 @@ public class AESUtils {
 
     private static final Charset charset = Charset.forName( "UTF-8" );
 
-    private static final String PRIV_KEY ="[.7=a$K#z)d3Eu^P";
+    private static final String PRIV_KEY ="[.7=a$K#z)d3Eu^A";//"[.7=a$K#z)d3Eu^P";
 
-    private static final String IV_KEY ="_g7=a$K#)d*E#fg7";
+    private static final String IV_KEY = "_g7=a$K#)d*E#fg8";//"_g7=a$K#)d*E#fg7";
+
 
 
     public static String encrypt(String content ) {

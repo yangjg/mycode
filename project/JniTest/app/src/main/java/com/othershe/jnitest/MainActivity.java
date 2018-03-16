@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         String gamcode = JniUtil.getInstance().getGameCodeSignKey();
         String appKey = JniUtil.getInstance().getAppKeySignKey();
         String gameKey = JniUtil.getInstance().getGameKeySignKey();
+        String aesprivatekey = JniUtil.getInstance().getAESPrivateKey();
+        String aesivkey = JniUtil.getInstance().getAESIVKey();
 
         Constants.test();
         data.setText(res);

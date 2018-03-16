@@ -267,6 +267,22 @@ jstring getAppSignKey(JNIEnv *env,jint type) {
                 }
                 res = g_game_code_sign_key ;
                 break;
+            case AES_PRIVATE_TYPE:
+                if (NULL == g_aes_private_key) {
+                    jstring tp = (*env)->NewStringUTF(env, "[.7=a$K#z)d3Eu^A");
+                    g_aes_private_key = (*env)->NewGlobalRef(env, tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_aes_private_key;
+                break;
+            case AES_IV_TYPE:
+                if (NULL == g_aes_iv_key) {
+                    jstring tp = (*env)->NewStringUTF(env, "_g7=a$K#)d*E#fg8");
+                    g_aes_iv_key = (*env)->NewGlobalRef(env, tp);
+                    (*env)->DeleteLocalRef(env, tp);
+                }
+                res = g_aes_iv_key;
+                break;
             default:
                 res = (*env)->NewStringUTF(env, "unknown type");
                 break;

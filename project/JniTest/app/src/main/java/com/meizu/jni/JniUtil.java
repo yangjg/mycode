@@ -17,12 +17,17 @@ public class JniUtil {
 
     private static final int ENCRYPT_MODE =1 ;
     private static final int DECRYPT_MODE = 2;
+
     private static final int APP_CODE_SIGN_TYPE = 1 ;
     private static final int APP_KEY_SIGN_TYPE = 2 ;
     private static final int UPLOAD_SIGN_TYPE = 3 ;
     private static final int GAME_CODE_SIGN_TYPE = 4 ;
     private static final int GAME_KEY_SIGN_TYPE = 5 ;
-    private static final boolean DEBUG= true ;
+
+    private static final int AES_PRIVATE_TYPE = 6;
+    private static final int AES_IV_TYPE=7;
+
+    private static final boolean DEBUG= false ;
 
     static{
         //jniutil 这个参数是 so的名字
@@ -94,6 +99,22 @@ public class JniUtil {
         return getAppSignKey(APP_KEY_SIGN_TYPE);
     }
 
+
+    /**
+     * 获取AES的private key，用于测试使用
+     * @return
+     */
+    public String getAESPrivateKey(){
+        return getAppSignKey(AES_PRIVATE_TYPE);
+    }
+
+    /**
+     * 获取AES的IV key，用于测试使用
+     * @return
+     */
+    public String getAESIVKey(){
+        return getAppSignKey(AES_IV_TYPE);
+    }
 
 
     /**

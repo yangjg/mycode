@@ -280,7 +280,7 @@ public class AlertDialogSamples extends Activity {
         case DIALOG_TEXT_ENTRY:
             // This example shows how to add a custom layout to an AlertDialog
             LayoutInflater factory = LayoutInflater.from(this);
-            final View textEntryView = factory.inflate(R.layout.alert_dialog_text_entry, null);
+            /*final View textEntryView = factory.inflate(R.layout.alert_dialog_text_entry, null);
             return new AlertDialog.Builder(AlertDialogSamples.this)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setTitle(R.string.alert_dialog_text_entry)
@@ -288,16 +288,21 @@ public class AlertDialogSamples extends Activity {
                 .setPositiveButton(R.string.alert_dialog_ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
     
-                        /* User clicked OK so do some stuff */
+                        *//* User clicked OK so do some stuff *//*
                     }
                 })
                 .setNegativeButton(R.string.alert_dialog_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
-                        /* User clicked cancel so do some stuff */
+                        *//* User clicked cancel so do some stuff *//*
                     }
                 })
-                .create();
+                .create();*/
+            final View textEntryView = factory.inflate(R.layout.alert_dialog_custom_entry, null);
+            AlertDialog.Builder builder = new  AlertDialog.Builder(AlertDialogSamples.this);
+            builder.setView(textEntryView);
+            return builder.create();
+
         }
         return null;
     }
