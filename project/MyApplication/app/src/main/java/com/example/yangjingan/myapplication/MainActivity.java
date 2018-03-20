@@ -22,6 +22,7 @@ import com.example.yangjingan.myapplication.Annotation.StateTest.TestState;
 import com.example.yangjingan.myapplication.CommonTest.ClassTest;
 import com.example.yangjingan.myapplication.CoordinatorTest.CoordinatorActivity;
 import com.example.yangjingan.myapplication.NdkTest.NdkActivity;
+import com.example.yangjingan.myapplication.Popup.PopupActivity;
 import com.example.yangjingan.myapplication.RSATest.RSAUtils;
 import com.example.yangjingan.myapplication.RSATest.RsaActivity;
 import com.example.yangjingan.myapplication.RxJavaTest.RxJavaActivity;
@@ -151,9 +152,18 @@ public class MainActivity extends AppCompatActivity {
 
     private  void dowork(){
 
+
+        Intent intent = new Intent();
+        intent.setClass(this,PopupActivity.class);
+        startActivity(intent);
+
+   /*     Intent intent = new Intent();
+        intent.setClass(this,ActonBarActivity.class);
+        startActivity(intent);*/
+/*
         Intent intent = new Intent();
         intent.setClass(this,RxJavaActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
 
        /* Intent intent = new Intent();
         intent.setClass(this,CoordinatorActivity.class);

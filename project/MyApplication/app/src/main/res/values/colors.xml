@@ -16,6 +16,8 @@
     <color name="ic_menu_homepage_horizontal_more_night">#ffffffff</color>
 
 
+    <color name="half_transparent">#66ffffff</color>
+
 
     <color name="green">#ff00ff00</color>
     <color name="active">#ff0000ff</color>

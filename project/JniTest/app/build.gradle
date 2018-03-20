@@ -13,8 +13,8 @@ android {
 
         ndk {
             moduleName "jniutil"
-            abiFilters "armeabi"
-           // abiFilters "all"
+           // abiFilters "armeabi"
+            abiFilters "all"
         }
     }
     buildTypes {

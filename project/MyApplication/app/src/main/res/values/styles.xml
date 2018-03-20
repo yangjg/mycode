@@ -15,4 +15,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="concealTitle" parent="NoActionBarTheme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
 </resources>

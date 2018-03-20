@@ -69,4 +69,9 @@
     <dimen name="badge_width_padding">2dp</dimen><!-- 4 -->
     <dimen name="badge_height_padding">1dp</dimen><!-- 1 -->
     <dimen name="badge_top_margin">2dp</dimen><!-- 2 -->
+
+
+    <!--其他ui的尺寸-->
+    <dimen name="bottom_height">54dp</dimen>
+
 </resources>
