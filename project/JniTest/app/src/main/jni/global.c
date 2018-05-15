@@ -38,7 +38,7 @@ bool checkedSign(JNIEnv *env) {
     //releaseeng：8DDB342F2DA5408402D7568AF21E29F9
     //releaseprd:1C44D05F494A1C2DC6CBCBAC9C92ECFD
     //releaseuser：C4AA9B9DEB124FE4BAE4C2FFDC05FAC
-    __const char* md5Array[]={
+    __const char* md5Array[]={"6C43F4D93B1E66BFDF9D3C44C46E72D3",
                               "6E657F8C6D195D3A3DEB5D21C9D77C53",
                               "8DDB342F2DA5408402D7568AF21E29F9",
                               "1C44D05F494A1C2DC6CBCBAC9C92ECFD",

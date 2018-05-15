@@ -27,7 +27,7 @@ public class JniUtil {
     private static final int AES_PRIVATE_TYPE = 6;
     private static final int AES_IV_TYPE=7;
 
-    private static final boolean DEBUG= false ;
+    private static final boolean DEBUG= true ;
 
     static{
         //jniutil 这个参数是 so的名字

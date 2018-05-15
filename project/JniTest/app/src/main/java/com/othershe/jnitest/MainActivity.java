@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         jsonObject.put("uid","113516747");
         String content =jsonObject.toJSONString();    //"fweewhwerhwhwehwehwehwehw";
 
+        String appcode = JniUtil.getInstance().getAppCodeSignKey();
+        String uploadKey = JniUtil.getInstance().getUploadSignKey();
         String res = JniUtil.getInstance().getEncrypt(content);
         String dec = JniUtil.getInstance().getDecrypt(res);
        // String res = jniUtil.getEncodeString(content);
@@ -51,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         String encrystr = AESUtils.encrypt(content);
         String decrystr = AESUtils.decrypt(encrystr);
         String res =  AESUtils.encrypt(content);  */
-        String appcode = JniUtil.getInstance().getAppCodeSignKey();
-        String uploadKey = JniUtil.getInstance().getUploadSignKey();
+ /*       String appcode = JniUtil.getInstance().getAppCodeSignKey();
+        String uploadKey = JniUtil.getInstance().getUploadSignKey();*/
         String gamcode = JniUtil.getInstance().getGameCodeSignKey();
         String appKey = JniUtil.getInstance().getAppKeySignKey();
         String gameKey = JniUtil.getInstance().getGameKeySignKey();
