@@ -151,19 +151,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void dowork(){
-
-
+/*
         Intent intent = new Intent();
+        intent.setClass(this,ExpandableActivityTest.class);
+        startActivity(intent);*/
+
+      /*  Intent intent = new Intent();
         intent.setClass(this,PopupActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
 
    /*     Intent intent = new Intent();
         intent.setClass(this,ActonBarActivity.class);
         startActivity(intent);*/
-/*
         Intent intent = new Intent();
         intent.setClass(this,RxJavaActivity.class);
-        startActivity(intent);*/
+        startActivity(intent);
 
        /* Intent intent = new Intent();
         intent.setClass(this,CoordinatorActivity.class);

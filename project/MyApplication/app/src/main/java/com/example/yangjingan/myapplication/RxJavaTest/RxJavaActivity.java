@@ -2,10 +2,14 @@ package com.example.yangjingan.myapplication.RxJavaTest;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.example.yangjingan.myapplication.R;
@@ -39,6 +43,7 @@ public class RxJavaActivity extends AppCompatActivity {
     private static final String TAG = "RxJavaActivity";
     TextView mInfo;
 
+    ViewStub mAppInfoStub;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +55,28 @@ public class RxJavaActivity extends AppCompatActivity {
                 test();
             }
         });
+
+        mAppInfoStub = Views.findViewById(this,R.id.app_info_root);
+
+        setCustomActionBar();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
+        //getMenuInflater().inflate(R.menu.main_menu, menu);
+        //return true;
+    }
+
+    private void setCustomActionBar(){
+        ActionBar.LayoutParams lp =new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
+        View mActionBarView = LayoutInflater.from(this).inflate(R.layout.actionbar_layout, null);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setCustomView(mActionBarView, lp);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
     }
 
 
@@ -212,6 +233,14 @@ public class RxJavaActivity extends AppCompatActivity {
 
 
 
+        mAppInfoStub.setOnInflateListener(new ViewStub.OnInflateListener() {
+            @Override
+            public void onInflate(ViewStub stub, View inflated) {
+                // stub.setVisibility(View.INVISIBLE);
+                inflated.setVisibility(View.VISIBLE);
+            }
+        });
+        mAppInfoStub.setVisibility(View.VISIBLE);
 
         //demo.filter()
       /*  demo.lift(new ObservableOperator<Object, String>() {

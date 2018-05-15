@@ -15,9 +15,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="shareDialog_style" parent="@android:style/Theme.Holo.DialogWhenLarge"/>
+
     <style name="concealTitle" parent="NoActionBarTheme">
         <item name="android:windowNoTitle">true</item>
     </style>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="animAlphaStart" format="float"/>
+        <attr name="expandText" format="reference"/>
+        <attr name="collapseText" format="reference"/>
+    </declare-styleable>
 
 
 </resources>

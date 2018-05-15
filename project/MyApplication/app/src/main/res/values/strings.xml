@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="expand_text">更多</string>
+    <string name="collapse_text">收起</string>
 </resources>
