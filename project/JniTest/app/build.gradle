@@ -1,5 +1,5 @@
+//这个是gradle3.0以下的版本不需要配置mk文件
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 24
     buildToolsVersion "23.0.3"
@@ -11,11 +11,12 @@ android {
         versionCode 1
         versionName "1.0"
 
-        /*ndk {
+        ndk {
             moduleName "jniutil"
-           // abiFilters "armeabi"
-            abiFilters "all"
-        }*/
+            abiFilters "armeabi"
+            // abiFilters "all"
+            // abiFilters "armeabi"
+        }
     }
     buildTypes {
         release {
@@ -24,90 +25,129 @@ android {
         }
     }
 }
-
-task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    def ndkDir = properties.getProperty('ndk.dir')
-    commandLine "$ndkDir/build/ndk-build", "NDK_PROJECT_PATH=$projectDir.absolutePath/build", "APP_BUILD_SCRIPT=$projectDir.absolutePath/src/main/jni/Android.mk", "NDK_APPLICATION_MK=$projectDir.absolutePath/src/main/jni/Application.mk"
-
-    //你自己的mk文件目录
-}
-
-
-task CopyToJniLibs(type: Copy, dependsOn: 'ndkBuild', description: 'copy the native libs to jniLibs') {
-    from fileTree(dir: file(buildDir.absolutePath + '/libs'), include: '**/*.so')
-    into file('src/main/jniLibs')
-}
-
-tasks.withType(org.gradle.api.tasks.compile.JavaCompile){
-    compileTask -> compileTask.dependsOn CopyToJniLibs
-}
-
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.alibaba:fastjson:1.1.60.android'
 }
+
+
+
+//这个gradle升级到3.0以后版本，需要配置mk文件才能编译。
+//apply plugin: 'com.android.application'
+//
+//android {
+//    compileSdkVersion 24
+//    buildToolsVersion "23.0.3"
+//
+//    defaultConfig {
+//        applicationId "com.othershe.jnitest"
+//        minSdkVersion 14
+//        targetSdkVersion 24
+//        versionCode 1
+//        versionName "1.0"
+//
+//        ndk {
+//            moduleName "jniutil"
+//           // abiFilters "armeabi"
+//            abiFilters "all"
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//}
+//
+//task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkDir = properties.getProperty('ndk.dir')
+//    commandLine "$ndkDir/build/ndk-build", "NDK_PROJECT_PATH=$projectDir.absolutePath/build", "APP_BUILD_SCRIPT=$projectDir.absolutePath/src/main/jni/Android.mk", "NDK_APPLICATION_MK=$projectDir.absolutePath/src/main/jni/Application.mk"
+//
+//    //你自己的mk文件目录
+//}
+//
+//
+//task CopyToJniLibs(type: Copy, dependsOn: 'ndkBuild', description: 'copy the native libs to jniLibs') {
+//    from fileTree(dir: file(buildDir.absolutePath + '/libs'), include: '**/*.so')
+//    into file('src/main/jniLibs')
+//}
+//
+//tasks.withType(org.gradle.api.tasks.compile.JavaCompile){
+//    compileTask -> compileTask.dependsOn CopyToJniLibs
+//}
+//
+//
+//dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    compile 'com.android.support:appcompat-v7:24.0.0'
+//    compile 'com.alibaba:fastjson:1.1.60.android'
+//}
+
+
+
 //这段gradle的配置是用来调试jni代码的配置，不生成so；
-/*apply plugin: 'com.android.model.application'
-model{
-    android {
-        compileSdkVersion 24
-        buildToolsVersion "23.0.3"
-
-        defaultConfig.with{
-            applicationId "com.othershe.jnitest"
-            minSdkVersion.apiLevel = 14
-            targetSdkVersion.apiLevel = 24
-
-        }
-        ndk {
-            moduleName "jniutil"
-            ldLibs.addAll(["android", "log"])
-            stl = "gnustl_shared"
-        }
-        buildTypes {
-            release {
-                minifyEnabled false
-                proguardFiles.add(file('proguard-rules.pro'))
-            }
-        }
-        productFlavors {
-            create("arm") {
-                ndk.abiFilters.add("armeabi")
-            }
-            create("arm7") {
-                ndk.abiFilters.add("armeabi-v7a")
-            }
-            create("arm8") {
-                ndk.abiFilters.add("arm64-v8a")
-            }
-            create("x86") {
-                ndk.abiFilters.add("x86")
-            }
-            create("x86-64") {
-                ndk.abiFilters.add("x86_64")
-            }
-            create("mips") {
-                ndk.abiFilters.add("mips")
-            }
-            create("mips-64") {
-                ndk.abiFilters.add("mips64")
-            }
-            // To include all cpu architectures, leaves abiFilters empty
-            create("all")
-        }
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.alibaba:fastjson:1.1.60.android'
-}*/
+//apply plugin: 'com.android.model.application'
+//model{
+//    android {
+//        compileSdkVersion 24
+//        buildToolsVersion "23.0.3"
+//
+//        defaultConfig.with{
+//            applicationId "com.othershe.jnitest"
+//            minSdkVersion.apiLevel = 14
+//            targetSdkVersion.apiLevel = 24
+//
+//        }
+//        ndk {
+//            moduleName "jniutil"
+//            ldLibs.addAll(["android", "log"])
+//            stl = "gnustl_shared"
+//        }
+//        buildTypes {
+//            release {
+//                minifyEnabled false
+//                proguardFiles.add(file('proguard-rules.pro'))
+//            }
+//        }
+//        productFlavors {
+//            create("arm") {
+//                ndk.abiFilters.add("armeabi")
+//            }
+//            create("arm7") {
+//                ndk.abiFilters.add("armeabi-v7a")
+//            }
+//            create("arm8") {
+//                ndk.abiFilters.add("arm64-v8a")
+//            }
+//            create("x86") {
+//                ndk.abiFilters.add("x86")
+//            }
+//            create("x86-64") {
+//                ndk.abiFilters.add("x86_64")
+//            }
+//            create("mips") {
+//                ndk.abiFilters.add("mips")
+//            }
+//            create("mips-64") {
+//                ndk.abiFilters.add("mips64")
+//            }
+//            // To include all cpu architectures, leaves abiFilters empty
+//            create("all")
+//        }
+//    }
+//}
+//
+//dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    compile 'com.android.support:appcompat-v7:24.0.0'
+//    compile 'com.alibaba:fastjson:1.1.60.android'
+//}
 
 
